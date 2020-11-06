@@ -1,0 +1,25 @@
+.main{
+    display: flex;
+}
+
+.someClass {
+    border: 1px solid wheat;
+    outline: none;
+}
+
+.error {
+    border: 1px solid red;
+    outline: none;
+}
+
+.errorMessageHide{
+    display: none;
+
+}
+
+.errorMessageShow{
+    display: block;
+    color: red;
+
+
+}

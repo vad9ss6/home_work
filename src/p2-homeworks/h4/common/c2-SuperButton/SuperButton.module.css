@@ -1,0 +1,17 @@
+.default {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: white;
+    background: blue;
+    font-weight: 700;
+}
+
+.opacity{
+    opacity: 0.5;
+}
+
+.red {
+    background: red;
+}
