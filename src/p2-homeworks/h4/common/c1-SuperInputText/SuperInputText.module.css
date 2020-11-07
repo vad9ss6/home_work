@@ -1,9 +1,9 @@
 .errorMessage{
     width: 100%;
     position: absolute;
-    top: -55px;
+    top: -32px;
     color: white;
-    padding: 5px 10px;
+    padding: 5px 5px;
     background-color: royalblue;
     
 }
@@ -11,7 +11,7 @@
 .errorMessage:after{
     content: '';
     width: 10px;
-    height: 10px;
+
     display: block;
     position: absolute;
     z-index: 10;
