@@ -5,6 +5,11 @@ import HW2 from "../../../p2-homeworks/h2/HW2";
 import HW3 from "../../../p2-homeworks/h3/HW3";
 import HW4 from "../../../p2-homeworks/h4/HW4";
 import HW5 from "../../../p2-homeworks/h5/HW5";
+import HW7 from "../../../p2-homeworks/h7/HW7";
+import HW8 from "../../../p2-homeworks/h8/HW8";
+import {Provider} from "react-redux";
+import {store} from "../../../p2-homeworks/h8/bll/redux/redux-store";
+import HW9 from "../../../p2-homeworks/h9/HW9";
 
 function App() {
     return (
@@ -14,8 +19,14 @@ function App() {
             {/*<HW2/>*/}
             {/*<HW3/>*/}
             {/*<HW4/>*/}
-            <HW5/>
+            {/*<HW5/>*/}
             {/*<HW6/>*/}
+            {/*<HW7/>*/}
+            <Provider store={store}>
+                <HW8/>
+            </Provider>
+            {/*<HW9/>*/}
+
 
         </div>
     );
