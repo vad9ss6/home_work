@@ -1,26 +1,38 @@
-import React, {useState} from "react";
-import {homeWorkReducer} from "./bll/homeWorkReducer";
+import React from "react";
+import {checkAC, fullUsersAC, initialPeopleType, sortAC} from "./bll/homeWorkReducer";
 import SuperButton from "../h4/common/c2-SuperButton/SuperButton";
+import {useDispatch, useSelector} from "react-redux";
 
-const initialPeople = [
-    {id: 0, name: "Кот", age: 3},
-    {id: 1, name: "Александр", age: 66},
-    {id: 2, name: "Коля", age: 16},
-    {id: 3, name: "Виктор", age: 44},
-    {id: 4, name: "Дмитрий", age: 40},
-    {id: 5, name: "Ирина", age: 55},
-]
+type AppRootStateType = {
+    homeWorkReducer: Array<initialPeopleType>
+}
 
 function HW8() {
-    const [people, setPeople] = useState(initialPeople);
+    const initialPeople = useSelector<AppRootStateType, Array<initialPeopleType>>(state => state.homeWorkReducer)
+    const dispatch = useDispatch()
 
-    const finalPeople = people.map(p => (
+    const finalPeople = initialPeople.map(p => (
         <div key={p.id}>
-            some name, age
+            {p.id}:{p.name}<span>{p.age}лет</span>
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: "sort", payload: "up"}))
+    const sortUp = () => {
+        const action = sortAC('up')
+        dispatch(action)
+    }
+    const sortDown = () => {
+        const action = sortAC('down')
+        dispatch(action)
+    }
+    const checkAge = () => {
+        const action = checkAC(18)
+        dispatch(action)
+    }
+    const fullUsers = () => {
+        const action = fullUsersAC()
+        dispatch(action)
+    }
 
     return (
         <div>
@@ -31,7 +43,9 @@ function HW8() {
 
             {finalPeople}
             <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
+            <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>
+            <div><SuperButton onClick={checkAge}>check 18</SuperButton></div>
+            <div><SuperButton onClick={fullUsers}>Full users</SuperButton></div>
 
             check 18
 
